@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <soap:Header>
+        <wsse:Security>
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+                <wsse:Username>tbd</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">lemon</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soap:Header>
+    <soap:Body>
+        <getJobDetails xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+            <jobDetailsRequest>
+                <dealerDetails vehicleFileID="0" user="Automation" password="KAOFtJ194" manufacturer="GM" languageCode="EN" dealerIdentificationCode="gbdummy02" countryCode="GB" bac="Test_BAC"/>
+                <job core="true" description="" id="054065105191" jobDifficulty="1" jobSource="MAN" service="true"/>
+                <vehicleMatch>
+                    <vinMatch>W0LZM8GB6J1019907</vinMatch>
+                </vehicleMatch>
+            </jobDetailsRequest>
+        </getJobDetails>
+    </soap:Body>
+</soap:Envelope>

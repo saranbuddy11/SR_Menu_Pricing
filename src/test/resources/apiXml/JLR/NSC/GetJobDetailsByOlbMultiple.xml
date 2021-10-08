@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:men="http://www.cliffordthames.com/ebusiness/menus/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <men:getJobDetailsByOlb>
+         <men:jobDetailsByOlbRequest>
+            <men:dealerDetails countryCode="GB" dealerIdentificationCode="GBdummy02" languageCode="EN" manufacturer="JLR" user=""/>
+            <men:olbProviderDetails id="107" password="Hammer666"/>
+            <!--1 to 25 repetitions:-->
+            <men:job core="true" id="100909225009" jobSource="MAN" service="true"/>
+            <men:job core="true" id="100909925007" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101001705085" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101003305045" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101004905035" jobSource="MAN" service="true"/>
+
+            <men:job core="true" id="101006405053" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101008205077" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101009605047" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101011305046" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101012905047" jobSource="MAN" service="true"/>
+
+            <men:job core="true" id="101014405032" jobSource="MAN" service="true"/>
+            <men:job core="true" id="101016106404" jobSource="MAN" service="true"/>
+            <men:job core="true" id="102601205007" jobSource="MAN" service="true"/>
+            <men:job core="true" id="102900005200" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104101625003" jobSource="MAN" service="true"/>
+
+            <men:job core="true" id="104101725004" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104200625005" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104201125012" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104300905010" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104400625009" jobSource="MAN" service="true"/>
+
+            <men:job core="true" id="104400825004" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104401625005" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104401725005" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104402225005" jobSource="MAN" service="true"/>
+            <men:job core="true" id="104402625005" jobSource="MAN" service="true"/>
+            <men:vehicleMatch>
+               <!--Optional:-->
+               <men:vinMatch>SALGA2EE0DA105481</men:vinMatch>
+            </men:vehicleMatch>men:vehicleMatch&gt;
+         </men:jobDetailsByOlbRequest>
+      </men:getJobDetailsByOlb>
+   </soapenv:Body>
+</soapenv:Envelope>

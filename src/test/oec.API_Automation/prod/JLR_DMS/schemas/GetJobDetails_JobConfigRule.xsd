@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetJobDetails_JobConfigRule_Schema.xsd"/>
+    <xs:element name="getJobDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:jobDetailsResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="jobDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element maxOccurs="unbounded" ref="menus:job"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+            <xs:attribute name="vehicleFileVersion" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="job">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:range"/>
+                <xs:element minOccurs="0" ref="menus:promotion"/>
+                <xs:element ref="menus:partsList"/>
+                <xs:element ref="menus:labours"/>
+                <xs:sequence minOccurs="0">
+                    <xs:element ref="menus:priceIncl"/>
+                    <xs:element ref="menus:priceExcl"/>
+                </xs:sequence>
+            </xs:sequence>
+            <xs:attribute name="core" use="required" type="xs:boolean"/>
+            <xs:attribute name="description" use="required"/>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+            <xs:attribute name="jobDifficulty" use="required" type="xs:integer"/>
+            <xs:attribute name="jobSource" use="required" type="xs:NCName"/>
+            <xs:attribute name="priceFixedAt" type="xs:NCName"/>
+            <xs:attribute name="service" use="required" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="range">
+        <xs:complexType>
+            <xs:attribute name="from" use="required" type="xs:NMTOKEN"/>
+            <xs:attribute name="to" use="required" type="xs:NCName"/>
+            <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="promotion">
+        <xs:complexType>
+            <xs:attribute name="code" use="required" type="xs:NCName"/>
+            <xs:attribute name="priceExcl" use="required" type="xs:decimal"/>
+            <xs:attribute name="priceFixedAt" use="required" type="xs:NCName"/>
+            <xs:attribute name="priceIncl" use="required" type="xs:decimal"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="partsList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:part"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="part">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:partNumber"/>
+                <xs:element ref="menus:quantity"/>
+                <xs:element ref="menus:altPartNumber"/>
+                <xs:element ref="menus:partDescription"/>
+                <xs:element ref="menus:supplierCode"/>
+                <xs:element ref="menus:priceExcl"/>
+                <xs:element ref="menus:remanufactured"/>
+                <xs:element ref="menus:tax"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="partNumber" type="xs:NCName"/>
+    <xs:element name="quantity" type="xs:decimal"/>
+    <xs:element name="altPartNumber">
+        <xs:complexType/>
+    </xs:element>
+    <xs:element name="partDescription" type="xs:string"/>
+    <xs:element name="supplierCode" type="xs:NCName"/>
+    <xs:element name="remanufactured" type="xs:boolean"/>
+    <xs:element name="tax">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:type"/>
+                <xs:element ref="menus:rate"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="type" type="xs:NCName"/>
+    <xs:element name="rate" type="xs:decimal"/>
+    <xs:element name="labours">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:labour"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="labour">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:id"/>
+                <xs:element ref="menus:min"/>
+                <xs:element ref="menus:description"/>
+                <xs:element ref="menus:asDTUs"/>
+                <xs:element ref="menus:asAWs"/>
+            </xs:sequence>
+            <xs:attribute name="hidden" use="required" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="id" type="xs:integer"/>
+    <xs:element name="min" type="xs:integer"/>
+    <xs:element name="description" type="xs:string"/>
+    <xs:element name="asDTUs" type="xs:decimal"/>
+    <xs:element name="asAWs" type="xs:decimal"/>
+    <xs:element name="priceIncl" type="xs:decimal"/>
+    <xs:element name="priceExcl" type="xs:decimal"/>
+</xs:schema>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soap:Body>
+      <getJobsByEvhc xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+         <jobsByEvhcRequest>
+            <dealerDetails countryCode="GB" dealerIdentificationCode="GBdummy02" languageCode="EN" manufacturer="" password="Password1234" user="Support"/>
+            <!--Clifford Thames TEST evhc details>-->
+            <evhcProviderDetails id="102" password="Hammer999"/>
+            <vehicleMatch>
+               <!--Optional:-->
+               <vinMatch>SAJAC011087N80339</vinMatch>
+               <!--vinMatch>SALLDBNS7BA825461</vinMatch>-->
+            </vehicleMatch>
+            <job core="true" description="" id="" jobDifficulty="1" jobSource="MAN" service="false"/>
+         </jobsByEvhcRequest>
+      </getJobsByEvhc>
+   </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <JobDetailsInput xmlns="http://cliffordthames.com/ebusiness/menupricing/vauxhall/epyx/types">
+            <JobId>53036</JobId>
+            <DealerCode>GBdummy01</DealerCode>
+            <FleetCode>dta6469</FleetCode>
+            <CountryCode>GB</CountryCode>
+            <LanguageCode>EN</LanguageCode>
+        </JobDetailsInput>
+    </soap:Body>
+</soap:Envelope>

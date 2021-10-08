@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetFleets_Schema.xsd"/>
+    <xs:element name="getFleetsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fleetsResponse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="status">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="description"/>
+                                            <xs:attribute type="xs:byte" name="state"/>
+                                            <xs:attribute type="xs:int" name="vehicleFileVersion"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="fleetList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="fleet" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="contact"/>
+                                                    <xs:element type="xs:string" name="address"/>
+                                                    <xs:element type="xs:string" name="postCode"/>
+                                                    <xs:element type="xs:string" name="telephone" minOccurs="0"/>
+                                                    <xs:element type="xs:string" name="fax"/>
+                                                    <xs:element type="xs:string" name="email"/>
+                                                    <xs:element type="xs:string" name="contract" minOccurs="0"/>
+                                                </xs:sequence>
+                                                <xs:attribute type="xs:string" name="fleetCode" use="optional"/>
+                                                <xs:attribute type="xs:string" name="fleetName" use="optional"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:string" name="countryCode"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

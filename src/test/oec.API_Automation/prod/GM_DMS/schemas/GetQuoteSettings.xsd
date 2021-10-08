@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetQuoteSettings_Schema.xsd"/>
+    <xs:element name="getQuoteSettingsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:quoteSettingsResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="quoteSettingsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element ref="menus:standardLabourRate"/>
+                <xs:element ref="menus:sundryParams"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+            <xs:attribute name="vehicleFileVersion" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="standardLabourRate" type="xs:decimal"/>
+    <xs:element name="sundryParams">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:jobSundryParam"/>
+            </xs:sequence>
+            <xs:attribute name="taxable" use="required" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="jobSundryParam">
+        <xs:complexType>
+            <xs:attribute name="calcMethod" use="required" type="xs:NCName"/>
+            <xs:attribute name="flatFeeAmount" use="required" type="xs:decimal"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetQuoteSettings_Schema.xsd"/>
+    <xs:element name="getQuoteSettingsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="quoteSettingsResponse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="status">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="description"/>
+                                            <xs:attribute type="xs:byte" name="state"/>
+                                            <xs:attribute type="xs:int" name="vehicleFileVersion"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:float" name="standardLabourRate"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

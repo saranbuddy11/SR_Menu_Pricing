@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <SearchListInput xmlns="http://cliffordthames.com/ebusiness/menupricing/vauxhall/epyx/types">
+            <CliffordThamesVehicleID>W0LJD7E86FB204393</CliffordThamesVehicleID>
+            <DealerCode>GBE444</DealerCode>
+            <FleetCode>dta6469</FleetCode>
+            <ICMEJobCodes>
+                <ICMEJobCode>518</ICMEJobCode>
+                <ICMEJobCode>520</ICMEJobCode>
+                <ICMEJobCode>760</ICMEJobCode>
+                <ICMEJobCode>1386</ICMEJobCode>
+                <ICMEJobCode>1392</ICMEJobCode>
+                <ICMEJobCode>1407</ICMEJobCode>
+                <ICMEJobCode>1458</ICMEJobCode>
+                <ICMEJobCode>1475</ICMEJobCode>
+                <ICMEJobCode>1684</ICMEJobCode>
+                <ICMEJobCode>1685</ICMEJobCode>
+                <ICMEJobCode>2317</ICMEJobCode>
+                <ICMEJobCode>2413</ICMEJobCode>
+                <ICMEJobCode>2427</ICMEJobCode>
+                <ICMEJobCode>2428</ICMEJobCode>
+                <ICMEJobCode>2429</ICMEJobCode>
+                <ICMEJobCode>29133</ICMEJobCode>
+            </ICMEJobCodes>
+            <CountryCode>GB</CountryCode>
+            <LanguageCode>EN</LanguageCode>
+        </SearchListInput>
+    </soap:Body>
+</soap:Envelope>

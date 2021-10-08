@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.cliffordthames.com/ebusiness/menus/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="getGenericPartsResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="genericPartsResponse">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="status">
+                        <xs:complexType>
+                           <xs:attribute name="description" type="xs:string" use="required" />
+                           <xs:attribute name="state" type="xs:unsignedByte" use="required" />
+                           <xs:attribute name="vehicleFileVersion" type="xs:unsignedInt" use="required" />
+                        </xs:complexType>
+                     </xs:element>
+                     <xs:element name="partsList">
+                        <xs:complexType>
+                           <xs:sequence>
+                              <xs:element maxOccurs="unbounded" name="part">
+                                 <xs:complexType>
+                                    <xs:sequence>
+                                       <xs:element name="partNumber" type="xs:string" />
+                                       <xs:element name="quantity" type="xs:unsignedByte" />
+                                       <xs:element minOccurs="0" name="altPartNumber" type="xs:string" />
+                                    </xs:sequence>
+                                 </xs:complexType>
+                              </xs:element>
+                           </xs:sequence>
+                        </xs:complexType>
+                     </xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

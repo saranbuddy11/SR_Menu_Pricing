@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:esa="http://www.cliffordthames.com/ebusiness/menupricing/esa">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <esa:PromotionalPricesInput>
+            <esa:DealerCode>DEdummy01</esa:DealerCode>
+            <esa:CountryCode>DE</esa:CountryCode>
+            <esa:LanguageCode>EN</esa:LanguageCode>
+            <esa:VIN>W0LPD6ED3C1129820</esa:VIN>
+            <!--1 or more repetitions:-->
+            <esa:PromotionCode>5100</esa:PromotionCode>
+        </esa:PromotionalPricesInput>
+    </soapenv:Body>
+</soapenv:Envelope>

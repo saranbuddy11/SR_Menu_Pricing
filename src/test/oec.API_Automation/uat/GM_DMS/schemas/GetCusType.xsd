@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetCusType_Schema.xsd"/>
+    <xs:element name="getCusTypeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:cusTypeResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="cusTypeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element maxOccurs="unbounded" ref="menus:cusTypeRecord"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="cusTypeRecord">
+        <xs:complexType>
+            <xs:attribute name="ctDesc" use="required"/>
+            <xs:attribute name="ctId" use="required" type="xs:integer"/>
+            <xs:attribute name="labAdjust" use="required" type="xs:decimal"/>
+            <xs:attribute name="ptsAdjust" use="required" type="xs:decimal"/>
+            <xs:attribute name="ptsBasedon" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

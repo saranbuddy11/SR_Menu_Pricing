@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetShell_Schema.xsd"/>
+    <xs:element name="getShellResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="shellResponse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="status">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="description"/>
+                                            <xs:attribute type="xs:byte" name="state"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="shellRecord" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="description" use="optional"/>
+                                            <xs:attribute type="xs:int" name="id" use="optional"/>
+                                            <xs:attribute type="xs:int" name="llc" use="optional"/>
+                                            <xs:attribute type="xs:string" name="section" use="optional"/>
+                                            <xs:attribute type="xs:string" name="subsection" use="optional"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

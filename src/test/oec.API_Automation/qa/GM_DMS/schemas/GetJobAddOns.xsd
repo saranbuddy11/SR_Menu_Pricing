@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetJobAddOns_Schema.xsd"/>
+    <xs:element name="getJobAddOnsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:jobsResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="jobsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element ref="menus:jobHierarchy"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+            <xs:attribute name="vehicleFileVersion" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="jobHierarchy">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="menus:operation"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="operation">
+        <xs:complexType>
+            <xs:sequence minOccurs="0">
+                <xs:element maxOccurs="unbounded" ref="menus:operation"/>
+                <xs:element ref="menus:job"/>
+            </xs:sequence>
+            <xs:attribute name="description" use="required"/>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="job">
+        <xs:complexType>
+            <xs:attribute name="core" use="required" type="xs:boolean"/>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+            <xs:attribute name="jobDifficulty" use="required" type="xs:integer"/>
+            <xs:attribute name="jobSource" use="required" type="xs:NCName"/>
+            <xs:attribute name="oe" use="required" type="xs:boolean"/>
+            <xs:attribute name="service" use="required" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

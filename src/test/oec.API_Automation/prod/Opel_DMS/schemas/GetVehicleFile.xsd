@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetVehicleFile_Schema.xsd"/>
+    <xs:element name="getVehicleFileResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:vehicleFileResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vehicleFileResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element maxOccurs="unbounded" ref="menus:vehicleFileRecord"/>
+            </xs:sequence>
+            <xs:attribute name="version" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+            <xs:attribute name="vehicleFileVersion" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vehicleFileRecord">
+        <xs:complexType>
+            <xs:attribute name="ModlCode" type="xs:integer"/>
+            <xs:attribute name="bodyDesc" use="required"/>
+            <xs:attribute name="bodyType" use="required" type="xs:integer"/>
+            <xs:attribute name="ccCode" use="required" type="xs:integer"/>
+            <xs:attribute name="engineCode" use="required" type="xs:integer"/>
+            <xs:attribute name="engineID" use="required"/>
+            <xs:attribute name="fromYear" use="required" type="xs:integer"/>
+            <xs:attribute name="fuel" use="required"/>
+            <xs:attribute name="fuelCode" use="required" type="xs:integer"/>
+            <xs:attribute name="manuCode" use="required" type="xs:NCName"/>
+            <xs:attribute name="modelCode" use="required" type="xs:integer"/>
+            <xs:attribute name="modelDesc" use="required"/>
+            <xs:attribute name="roundCC" use="required" type="xs:NMTOKEN"/>
+            <xs:attribute name="toYear" use="required" type="xs:integer"/>
+            <xs:attribute name="transCode" use="required" type="xs:integer"/>
+            <xs:attribute name="transmission" use="required"/>
+            <xs:attribute name="trimCode" use="required" type="xs:integer"/>
+            <xs:attribute name="trimDesc" use="required"/>
+            <xs:attribute name="vehicleNumber" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

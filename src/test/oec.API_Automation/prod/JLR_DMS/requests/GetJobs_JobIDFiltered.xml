@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:men="http://www.cliffordthames.com/ebusiness/menus/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <men:getJobs xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+         <men:jobsRequest>
+            <men:dealerDetails manufacturer="JLR" countryCode="GB" languageCode="EN" dealerIdentificationCode="Automation" user="Automation" password="O3Cg0d3l751" vehicleFileID="0"/>
+            <men:vehicleMatch>
+               <!--Optional:-->
+               <men:vinMatch>SALWA2KEXFA525204</men:vinMatch>
+               <!--men:regMatch></men:regMatch>-->
+            </men:vehicleMatch>
+            <variantsRequest>
+               <operation id="10101610"/>
+            </variantsRequest>
+            <!--Optional:-->
+            <men:dmsMPVersion value="v1.00"/>
+         </men:jobsRequest>
+      </men:getJobs>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.cliffordthames.com/ebusiness/menus/" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="getJobsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="jobsResponse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="status">
+                                <xs:complexType>
+                                    <xs:attribute name="description" type="xs:string" use="required" />
+                                    <xs:attribute name="state" type="xs:unsignedByte" use="required" />
+                                    <xs:attribute name="vehicleFileVersion" type="xs:unsignedInt" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="vehicle">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="vinMatch" type="xs:string" />
+                                        <xs:element name="regMatch" type="xs:string" />
+                                        <xs:element name="ctVehicleList">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="ctVehicle">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="ctVehicleAttributes">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="firstRegistrationDate" type="xs:string" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="jobHierarchy">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="operation">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="operation">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="operation">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="job">
+                                                                                <xs:complexType>
+                                                                                    <xs:attribute name="core" type="xs:boolean" use="required" />
+                                                                                    <xs:attribute name="description" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="id" type="xs:unsignedLong" use="required" />
+                                                                                    <xs:attribute name="jobDifficulty" type="xs:unsignedByte" use="required" />
+                                                                                    <xs:attribute name="jobSource" type="xs:string" use="required" />
+                                                                                    <xs:attribute name="service" type="xs:boolean" use="required" />
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute name="description" type="xs:string" use="required" />
+                                                                        <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="description" type="xs:string" use="required" />
+                                                            <xs:attribute name="id" type="xs:unsignedShort" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="description" type="xs:string" use="required" />
+                                                <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

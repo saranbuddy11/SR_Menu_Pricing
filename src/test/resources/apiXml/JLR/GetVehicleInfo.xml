@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:men="http://www.cliffordthames.com/ebusiness/menus/">
+<soapenv:Header/>
+<soapenv:Body>
+   <men:getVehicleInfo xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+      <men:vehicleInfoRequest>
+         <men:dealerDetails countryCode="GB" dealerIdentificationCode="Automation" languageCode="EN" manufacturer="JLR" password="O3Cg0d3l751" user="Automation" vehicleFileID="0"/>
+         <men:vehicleMatch>
+            <!--Optional:-->
+            <vinMatch>SALLDBNS7BA825461</vinMatch>
+            <!--Optional:
+            <men:vinMatch>SAJKC44K375B10626</men:vinMatch>-->
+         </men:vehicleMatch>
+         <!--Optional:-->
+         <men:dmsMPVersion value="v1.00"/>
+      </men:vehicleInfoRequest>
+   </men:getVehicleInfo>
+</soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wal="http://www.cliffordthames.com/ebusiness/wallet/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <wal:getJobDetails>
+            <jobDetailsRequest xmlns="http://www.cliffordthames.com/ebusiness/wallet/">
+                <dealerDetails countryCode="DE" dealerIdentificationCode="DEdummy01" languageCode="DE"/>
+                <vehicleDetails>
+                    <vinMatch>W0LPD6ED3C1129820</vinMatch>
+                </vehicleDetails>
+                <wal:filter>
+                    <wal:promotionCode>5100</wal:promotionCode>
+                    <wal:typeFlag>MOS</wal:typeFlag>
+                </wal:filter>
+            </jobDetailsRequest>
+        </wal:getJobDetails>
+    </soapenv:Body>
+</soapenv:Envelope>

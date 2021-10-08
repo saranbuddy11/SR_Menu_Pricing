@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://cliffordthames.com/ebusiness/menupricing/vauxhall/epyx/types" xmlns:tns1="http://cliffordthames.com/ebusiness/menupricing/vauxhall/epyx/types">
+                <xs:complexType name="VehicleDetailsInputType">
+                    <xs:sequence>
+                        <xs:element name="VIN" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="RegistrationNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="CountryCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="LanguageCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:element name="VehicleDetailsInput" type="tns1:VehicleDetailsInputType"/>
+                <xs:complexType name="OutputBaseType">
+                    <xs:sequence/>
+                    <xs:attribute name="state" type="xs:int"/>
+                    <xs:attribute name="timeInput" type="xs:dateTime"/>
+                    <xs:attribute name="timeOutput" type="xs:dateTime"/>
+                    <xs:attribute name="timeSLA" type="xs:decimal"/>
+                </xs:complexType>
+                <xs:complexType name="VehicleType">
+                    <xs:sequence>
+                        <xs:element name="CountryCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="RegistrationNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="CliffordThamesVehicleID" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:complexType name="VehicleDetailsOutputType">
+                    <xs:complexContent>
+                        <xs:extension base="tns1:OutputBaseType">
+                            <xs:sequence>
+                                <xs:element name="Vehicle" type="tns1:VehicleType" minOccurs="0" maxOccurs="1"/>
+                            </xs:sequence>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+                <xs:element name="VehicleDetailsOutput" type="tns1:VehicleDetailsOutputType"/>
+                <xs:complexType name="CliffordThamesFaultOutputType">
+                    <xs:complexContent>
+                        <xs:extension base="tns1:OutputBaseType">
+                            <xs:sequence/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+                <xs:element name="CliffordThamesFaultOutput" type="tns1:CliffordThamesFaultOutputType"/>
+                <xs:complexType name="SearchListInputType">
+                    <xs:sequence>
+                        <xs:element name="CliffordThamesVehicleID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="DealerCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="FleetCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="ICMEJobCodes" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="ICMEJobCode" type="xs:int" minOccurs="1" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="SearchTextFSC" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="TISCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="CountryCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="LanguageCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:element name="SearchListInput" type="tns1:SearchListInputType"/>
+                <xs:complexType name="SearchListOutputType">
+                    <xs:complexContent>
+                        <xs:extension base="tns1:OutputBaseType">
+                            <xs:sequence>
+                                <xs:element name="Job" minOccurs="0" maxOccurs="unbounded">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="ID" type="xs:long" minOccurs="1" maxOccurs="1"/>
+                                            <xs:element name="Description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                                            <xs:element name="LabourTime" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                                            <xs:element name="PriceIncl" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                                            <xs:element name="PriceExcl" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                                            <xs:element name="Ranges" minOccurs="0" maxOccurs="1">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element name="Range" minOccurs="1" maxOccurs="unbounded">
+                                                            <xs:complexType>
+                                                                <xs:sequence>
+                                                                    <xs:element name="Type" minOccurs="1" maxOccurs="1">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="xs:string">
+                                                                                <xs:enumeration value="MY"/>
+                                                                                <xs:enumeration value="C"/>
+                                                                                <xs:enumeration value="E"/>
+                                                                                <xs:enumeration value="G"/>
+                                                                                <xs:enumeration value="YEAR"/>
+                                                                                <xs:enumeration value="MILE"/>
+                                                                                <xs:enumeration value="KM"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:element>
+                                                                    <xs:element name="From" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>If there is no From then there must be a To</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:element>
+                                                                    <xs:element name="To" type="xs:string" minOccurs="0" maxOccurs="1">
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>If there is no To then there must be a From</xs:documentation>
+                                                                        </xs:annotation>
+                                                                    </xs:element>
+                                                                </xs:sequence>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+                <xs:element name="SearchListOutput" type="tns1:SearchListOutputType"/>
+                <xs:complexType name="JobDetailsInputType">
+                    <xs:sequence>
+                        <xs:element name="JobId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="DealerCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="FleetCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="CountryCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="LanguageCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:element name="JobDetailsInput" type="tns1:JobDetailsInputType"/>
+                <xs:complexType name="PartType">
+                    <xs:sequence>
+                        <xs:element name="Code" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="Quantity" type="xs:double"/>
+                        <xs:element name="UnitPricePreDiscount" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="UnitCost" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="LineItemTotal" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:complexType name="FluidType">
+                    <xs:sequence>
+                        <xs:element name="TypeCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="UnitsUsed" type="xs:double" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="UnitCost" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="LineItemTotal" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:complexType name="JobDetailedType">
+                    <xs:sequence>
+                        <xs:element name="Description" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="ICMEJobCode" type="xs:int" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="LabourHoursTotal" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="LabourRate" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="LabourTotal" type="xs:double" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="PriceExcl" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="PriceIncl" type="xs:double" minOccurs="1" maxOccurs="1"/>
+                        <xs:element name="Parts" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Part" type="tns1:PartType" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="Fluids" minOccurs="0" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Fluid" type="tns1:FluidType" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+                <xs:complexType name="JobDetailsOutputType">
+                    <xs:complexContent>
+                        <xs:extension base="tns1:OutputBaseType">
+                            <xs:sequence>
+                                <xs:element name="JobDetailed" type="tns1:JobDetailedType" minOccurs="0" maxOccurs="1"/>
+                            </xs:sequence>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+                <xs:element name="JobDetailsOutput" type="tns1:JobDetailsOutputType"/>
+            </xs:schema>

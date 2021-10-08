@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetVehicleId_Schema.xsd"/>
+    <xs:element name="getVehicleIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:vehicleIdResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vehicleIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element ref="menus:manualMatchCriteriaList"/>
+                <xs:element ref="menus:manualMatchVehicle"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+            <xs:attribute name="vehicleFileVersion" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="manualMatchCriteriaList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:make"/>
+                <xs:element ref="menus:model"/>
+                <xs:element ref="menus:modelYear"/>
+                <xs:element ref="menus:cc"/>
+                <xs:element ref="menus:engine"/>
+                <xs:element ref="menus:fuel"/>
+                <xs:element ref="menus:transmission"/>
+                <xs:element ref="menus:body"/>
+                <xs:element ref="menus:badge"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="make" type="soap:manualMatchOptions"/>
+    <xs:element name="model" type="soap:manualMatchOptions"/>
+    <xs:element name="modelYear" type="soap:manualMatchOptions"/>
+    <xs:element name="cc" type="soap:manualMatchOptions"/>
+    <xs:element name="engine" type="soap:manualMatchOptions"/>
+    <xs:element name="fuel" type="soap:manualMatchOptions"/>
+    <xs:element name="transmission" type="soap:manualMatchOptions"/>
+    <xs:element name="body" type="soap:manualMatchOptions"/>
+    <xs:element name="badge" type="soap:manualMatchOptions"/>
+    <xs:element name="manualMatchVehicle">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:vehicle"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="vehicle">
+        <xs:complexType>
+            <xs:attribute name="bodyDesc" use="required"/>
+            <xs:attribute name="bodyType" use="required" type="xs:integer"/>
+            <xs:attribute name="ccCode" use="required" type="xs:integer"/>
+            <xs:attribute name="engineCode" use="required" type="xs:integer"/>
+            <xs:attribute name="engineID" use="required"/>
+            <xs:attribute name="fromYear" use="required" type="xs:integer"/>
+            <xs:attribute name="fuel" use="required"/>
+            <xs:attribute name="fuelCode" use="required" type="xs:integer"/>
+            <xs:attribute name="manuCode" use="required" type="xs:NCName"/>
+            <xs:attribute name="modelCode" use="required" type="xs:integer"/>
+            <xs:attribute name="modelDesc" use="required" type="xs:NCName"/>
+            <xs:attribute name="roundCC" use="required" type="xs:decimal"/>
+            <xs:attribute name="stepKey" use="required"/>
+            <xs:attribute name="toYear" use="required" type="xs:integer"/>
+            <xs:attribute name="transCode" use="required" type="xs:integer"/>
+            <xs:attribute name="transmission" use="required"/>
+            <xs:attribute name="trimCode" use="required" type="xs:integer"/>
+            <xs:attribute name="trimDesc" use="required" type="xs:NCName"/>
+            <xs:attribute name="vehicleNumber" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="manualMatchOptions">
+        <xs:complexType>
+            <xs:attribute name="description" use="required"/>
+            <xs:attribute name="selected" use="required" type="xs:boolean"/>
+            <xs:attribute name="value" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

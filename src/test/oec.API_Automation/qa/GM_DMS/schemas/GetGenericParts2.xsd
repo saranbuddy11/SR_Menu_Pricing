@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetGenericParts2_Schema.xsd"/>
+    <xs:element name="getGenericParts2Response">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:genericPartsResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="genericPartsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element ref="menus:partsList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+            <xs:attribute name="vehicleFileVersion" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="partsList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="menus:part"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="part">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:partNumber"/>
+                <xs:element minOccurs="0" ref="menus:altPartNumber"/>
+                <xs:element ref="menus:quantity"/>
+                <xs:element ref="menus:partDescription"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="partNumber" type="xs:NMTOKEN"/>
+    <xs:element name="altPartNumber" type="xs:string"/>
+    <xs:element name="quantity" type="xs:integer"/>
+    <xs:element name="partDescription" type="xs:NCName"/>
+</xs:schema>

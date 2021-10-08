@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:men="http://www.cliffordthames.com/ebusiness/menus/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <getJobAddOns xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+         <jobAddOnsRequest>
+            <men:dealerDetails manufacturer="JLR" countryCode="GB" languageCode="EN" dealerIdentificationCode="Automation" user="Automation" password="O3Cg0d3l751" vehicleFileID="0"/>
+            <vehicleMatch>
+               <vinMatch>SALLDBNS7BA825461</vinMatch>
+            </vehicleMatch>
+            <job id="101005005005" description="" jobSource="MAN" core="false" service="false"/>
+         </jobAddOnsRequest>
+      </getJobAddOns>
+   </soapenv:Body>
+</soapenv:Envelope>

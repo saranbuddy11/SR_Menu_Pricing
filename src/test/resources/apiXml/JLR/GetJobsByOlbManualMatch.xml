@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+   <s:Body>
+      <getJobsByOlb xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+         <jobsByOlbRequest>
+            <dealerDetails countryCode="GB" dealerIdentificationCode="GBdummy01" languageCode="EN" manufacturer="" user="MPUser"/>
+            <olbProviderDetails id="107" password="Hammer666"/>
+            <vehicleMatch>
+               <vehicleFileRecord bodyDesc="4 dr Estate Station Wagon" engineID="AJTDV6-3.0" fromYear="2013" fuel="Diesel Dir Inj Turbo" manuCode="JAG" modelDesc="X250 XF             " roundCC="3.0TD" toYear="2015" transmission="8 Speed Automatic RWDL" trimDesc="JT1 - &quot;Entry&quot; series"/>
+            </vehicleMatch>
+         </jobsByOlbRequest>
+      </getJobsByOlb>
+   </s:Body>
+</s:Envelope>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:env="env">
+    <soap:Header>
+        <wsse:Security env:mustUnderstand="1" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsu:Timestamp wsu:Id="Timestamp-4247B214FE160E293B15360920634652">
+                <wsu:Created>${= new Date().format("yyyy-MM-dd'T'HH:mm:ss.SSS") }</wsu:Created>
+                <wsu:Expires>${= def date = new Date(); date.setMinutes( date.getMinutes()+5); date.format("yyyy-MM-dd'T'HH:mm:ss.SSS") }</wsu:Expires>
+            </wsu:Timestamp>
+            <wsse:UsernameToken>
+                <wsse:Username>mpgm-ws-connect_a18</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">aicKWUVxsGR#B{24j*DavbMLyJ*4Y4KkREiBzi9c</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soap:Header>
+    <soap:Body>
+        <getQuoteSettings xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+            <quoteSettingsRequest>
+                <dealerDetails vehicleFileID="0" manufacturer="GM" languageCode="EN" countryCode="US"/>
+            </quoteSettingsRequest>
+        </getQuoteSettings>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetVisitJobs_Schema.xsd"/>
+    <xs:element name="getVisitJobsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:visitJobsResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="visitJobsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="menus:status"/>
+                <xs:element maxOccurs="unbounded" ref="menus:visitJobsRecord"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="status">
+        <xs:complexType>
+            <xs:attribute name="description" use="required" type="xs:NCName"/>
+            <xs:attribute name="state" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="visitJobsRecord">
+        <xs:complexType>
+            <xs:attribute name="costExcl" use="required" type="xs:decimal"/>
+            <xs:attribute name="description" use="required"/>
+            <xs:attribute name="glc" type="xs:integer"/>
+            <xs:attribute name="id" type="xs:integer"/>
+            <xs:attribute name="retailExcl" use="required" type="xs:decimal"/>
+            <xs:attribute name="taxRate" use="required" type="xs:decimal"/>
+            <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

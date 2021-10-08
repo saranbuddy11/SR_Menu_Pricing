@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetJobDetails_MMRule_Schema.xsd"/>
+    <xs:element name="getJobDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="jobDetailsResponse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="status">
+                                <xs:complexType>
+                                    <xs:attribute name="description" type="xs:string" use="required" />
+                                    <xs:attribute name="state" type="xs:unsignedByte" use="required" />
+                                    <xs:attribute name="vehicleFileVersion" type="xs:unsignedInt" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" name="job">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="promotion">
+                                            <xs:complexType>
+                                                <xs:attribute name="code" type="xs:string" use="required" />
+                                                <xs:attribute name="description" type="xs:string" use="required" />
+                                                <xs:attribute name="priceExcl" type="xs:decimal" use="required" />
+                                                <xs:attribute name="priceFixedAt" type="xs:string" use="required" />
+                                                <xs:attribute name="priceIncl" type="xs:decimal" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="partsList">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="part">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="partNumber" type="xs:unsignedInt" />
+                                                                <xs:element name="quantity" type="xs:decimal" />
+                                                                <xs:element minOccurs="0" name="altPartNumber" type="xs:unsignedInt" />
+                                                                <xs:element name="partDescription" type="xs:string" />
+                                                                <xs:element name="supplierCode" type="xs:string" />
+                                                                <xs:element name="priceExcl" type="xs:decimal" />
+                                                                <xs:element name="remanufactured" type="xs:boolean" />
+                                                                <xs:element name="tax">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="type" type="xs:string" />
+                                                                            <xs:element name="rate" type="xs:decimal" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="labours">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="labour">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="id" type="xs:unsignedInt" />
+                                                                <xs:element name="ta" type="xs:unsignedByte" />
+                                                                <xs:element name="labourAlgoCode" type="xs:string" />
+                                                                <xs:element name="description" type="xs:string" />
+                                                                <xs:element name="asDTUs" type="xs:decimal" />
+                                                                <xs:element name="asAWs" type="xs:decimal" />
+                                                                <xs:element name="asDTUsItaly" type="xs:decimal" />
+                                                            </xs:sequence>
+                                                            <xs:attribute name="hidden" type="xs:boolean" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="type" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="core" type="xs:boolean" use="required" />
+                                    <xs:attribute name="description" type="xs:string" use="required" />
+                                    <xs:attribute name="id" type="xs:unsignedLong" use="required" />
+                                    <xs:attribute name="jobDifficulty" type="xs:unsignedByte" use="required" />
+                                    <xs:attribute name="jobSource" type="xs:string" use="required" />
+                                    <xs:attribute name="service" type="xs:boolean" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+

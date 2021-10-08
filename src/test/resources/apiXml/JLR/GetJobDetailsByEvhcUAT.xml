@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:men="http://www.cliffordthames.com/ebusiness/menus/">
+   <soapenv:Body>
+      <getJobDetailsByEvhc xmlns="http://www.cliffordthames.com/ebusiness/menus/">
+         <jobDetailsByEvhcRequest>
+            <dealerDetails countryCode="GB" dealerIdentificationCode="GBUevhc" languageCode="EN" manufacturer="JLR" password="GBU5T1Q" user=""/>
+            <!--Clifford Thames TEST evhc details>-->
+            <evhcProviderDetails id="102" password="Hammer999"/>
+            <job core="false" description="" id="701000555001" jobDifficulty="1" jobSource="MAN" service="false"/>
+            <vehicleMatch>
+               <!--Optional:-->
+               <!--regMatch>KN62SOJ</regMatch>-->
+               <vinMatch>SALWA2EE4EA322383</vinMatch>
+            </vehicleMatch>
+         </jobDetailsByEvhcRequest>
+      </getJobDetailsByEvhc>
+   </soapenv:Body>
+</soapenv:Envelope>

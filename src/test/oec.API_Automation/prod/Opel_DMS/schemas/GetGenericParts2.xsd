@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.cliffordthames.com/ebusiness/menus/" xmlns:menus="http://www.cliffordthames.com/ebusiness/menus/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <xs:import namespace="http://schemas.xmlsoap.org/soap/envelope/" schemaLocation="GetGenericParts2_Schema.xsd"/>
+    <xs:element name="getGenericParts2Response">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genericPartsResponse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="status">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute type="xs:string" name="description"/>
+                                            <xs:attribute type="xs:byte" name="state"/>
+                                            <xs:attribute type="xs:int" name="vehicleFileVersion"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="partsList">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="part" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="partNumber"/>
+                                                    <xs:element type="xs:byte" name="quantity"/>
+                                                    <xs:element type="xs:string" name="altPartNumber" minOccurs="0"/>
+                                                    <xs:element type="xs:string" name="partDescription"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
